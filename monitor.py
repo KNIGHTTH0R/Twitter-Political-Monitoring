@@ -16,7 +16,6 @@ consumer_secret = ''
 access_token = ''
 access_token_secret = ''
 
-#Adapted from https://gist.github.com/vickyqian/f70e9ab3910c7c290d9d715491cde44c
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 api = tweepy.API(auth,wait_on_rate_limit=True)
@@ -54,9 +53,8 @@ def get_tweets_kwd(keyword):
         csvWriter.writerow([get_user_loc(tweet.user), tweet.geo, tweet.place, tweet.coordinates, tweet.created_at, tweet.text.encode('utf-8')])
     return filename
 
-# adapted from https://cloud.google.com/natural-language/docs/sentiment-tutorial
-#analyzing_document_sentiment
 
+#analyzing_document_sentiment
 def analyze(text):
     """Run a sentiment analysis request on text within a passed filename."""
     client = language.LanguageServiceClient()
